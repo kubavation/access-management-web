@@ -1,4 +1,2 @@
-Users
-<div *ngFor="let user of users$ | async">
-  {{user | json}}
-</div>
+<app-users-list [users]="users$ | async">
+</app-users-list>
