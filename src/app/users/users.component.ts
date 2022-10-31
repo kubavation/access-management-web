@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {UsersService} from "./service/users.service";
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent{
 
-  constructor() { }
+  users$ = this.usersService.getUsers();
 
-  ngOnInit(): void {
-  }
+  constructor(private usersService: UsersService) { }
 
 }
