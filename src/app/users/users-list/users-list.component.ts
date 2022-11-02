@@ -17,8 +17,8 @@ export class UsersListComponent {
 
   @Input() set users(_users: User[]) {
     this.dataSource = new MatTableDataSource<User>(_users);
-    this.dataSource.sort =  this._sort;
-    this.dataSource.paginator =this._paginator;
+    this.dataSource.sort = this._sort;
+    this.dataSource.paginator = this._paginator;
   }
 
   dataSource: MatTableDataSource<User>;
