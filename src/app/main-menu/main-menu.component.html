@@ -1,7 +1,7 @@
 <div class="menu-container">
 
     <div *ngFor="let menuItem of menuItems$ | async">
-        {{menuItem | json}}
+       <app-menu-item-card [menuItem]="menuItem"></app-menu-item-card>
     </div>
 
 </div>

@@ -16,6 +16,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatIconModule} from "@angular/material/icon";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatAutocompleteModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule
   ],
   exports: [
     MatSidenavModule,
@@ -57,7 +59,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatAutocompleteModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule
   ]
 })
 export class SharedModule { }

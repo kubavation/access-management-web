@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title class="config-title">
+    <div class="title-div">
+      <div>{{menuItem.name}}</div>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="config-description">
+      {{menuItem.description}}
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="config-actions">
+    <button (click)="routeTo(menuItem.url)" mat-fab color="warn" class="config-group-button">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
