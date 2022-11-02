@@ -1,19 +1,7 @@
 <div class="menu-container">
 
-  <div style="width: 300px">
-    test1
-  </div>
-
-  <div style="width: 300px">
-    test1
-  </div>
-
-  <div style="width: 300px">
-    test1
-  </div>
-
-  <div style="width: 300px">
-    test1
-  </div>
+    <div *ngFor="let menuItem of menuItems$ | async">
+        {{menuItem | json}}
+    </div>
 
 </div>
