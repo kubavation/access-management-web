@@ -1,6 +1,6 @@
 <div class="menu-container">
 
-    <div *ngFor="let menuItem of menuItems$ | async">
+    <div *ngFor="let menuItem of menuItems$ | async" style="width: 20vw; height: 30%">
        <app-menu-item-card [menuItem]="menuItem"></app-menu-item-card>
     </div>
 
