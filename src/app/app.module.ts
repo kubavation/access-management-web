@@ -9,19 +9,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MainMenuComponent} from "./main-menu/main-menu.component";
 import { MenuItemCardComponent } from './main-menu/components/menu-item-card/menu-item-card.component';
 import {SharedModule} from "./shared/shared.module";
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    MenuItemCardComponent
+    MenuItemCardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
