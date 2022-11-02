@@ -17,6 +17,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatCardModule} from "@angular/material/card";
+import {MatStepperModule} from "@angular/material/stepper";
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {MatCardModule} from "@angular/material/card";
     MatIconModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatStepperModule
   ],
   exports: [
     MatSidenavModule,
@@ -60,7 +62,8 @@ import {MatCardModule} from "@angular/material/card";
     MatIconModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatStepperModule
   ]
 })
 export class SharedModule { }

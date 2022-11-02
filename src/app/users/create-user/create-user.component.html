@@ -1,1 +1,10 @@
-<p>create-user works!</p>
+<div>
+  <mat-stepper #createUserStepper>
+    <mat-step> <!--[stepControl]="firstFormGroup"-->
+      <ng-template matStepLabel>Basic informations</ng-template>
+    </mat-step>
+    <mat-step> <!--[stepControl]="firstFormGroup"-->
+    <ng-template matStepLabel>Basic informations 2</ng-template>
+    </mat-step>
+  </mat-stepper>
+</div>

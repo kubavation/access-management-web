@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.scss']
+  styleUrls: ['./create-user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUserComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }
