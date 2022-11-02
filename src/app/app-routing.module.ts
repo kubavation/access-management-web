@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import * as path from "path";
+import {MainMenuComponent} from "./main-menu/main-menu.component";
 
 const routes: Routes = [
-  {path: '', loadChildren: () => import('./users/users.module').then(m => m.UsersModule)},
+  {path: '', component: MainMenuComponent},
   {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule)},
   {path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule)}
 ];

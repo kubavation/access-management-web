@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MainMenuComponent} from "./main-menu/main-menu.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,
