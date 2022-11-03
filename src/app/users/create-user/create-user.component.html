@@ -1,9 +1,26 @@
 <div>
-  <mat-stepper #createUserStepper>
-    <mat-step> <!--[stepControl]="firstFormGroup"-->
+  <mat-stepper #createUserStepper >
+    <mat-step [stepControl]="basicInformationFormGroup">
       <ng-template matStepLabel>Basic informations</ng-template>
+        <div [formGroup]="basicInformationFormGroup">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" >
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" >
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+      </div>
     </mat-step>
-    <mat-step> <!--[stepControl]="firstFormGroup"-->
+    <mat-step>
     <ng-template matStepLabel>Basic informations 2</ng-template>
     </mat-step>
   </mat-stepper>

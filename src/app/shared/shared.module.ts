@@ -18,6 +18,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatCardModule} from "@angular/material/card";
 import {MatStepperModule} from "@angular/material/stepper";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import {MatStepperModule} from "@angular/material/stepper";
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatCardModule,
-    MatStepperModule
+    MatStepperModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatSidenavModule,
@@ -63,7 +67,9 @@ import {MatStepperModule} from "@angular/material/stepper";
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatCardModule,
-    MatStepperModule
+    MatStepperModule,
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

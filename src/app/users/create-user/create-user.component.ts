@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-user',
@@ -8,7 +9,12 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 })
 export class CreateUserComponent {
 
-  constructor() { }
+  basicInformationFormGroup = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required]
+  });
+
+  constructor(private fb: FormBuilder) { }
 
 
 }
