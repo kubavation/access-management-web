@@ -21,8 +21,8 @@ export class CreateUserComponent {
     password: ['', Validators.required]
   });
 
-  usernameErrorConfig: ControlErrorConfig = {
-    errorConfig: [
+  usernameErrorConfig: ControlErrorConfig =
+    [
       {
         error: 'required',
         message: 'This value is required'
@@ -35,17 +35,15 @@ export class CreateUserComponent {
         error: 'usernameAlreadyTaken',
         message: 'Username already exists'
       }
-    ]
-  };
+    ];
 
-  passwordErrorConfig: ControlErrorConfig = {
-    errorConfig: [
+  passwordErrorConfig: ControlErrorConfig =
+    [
       {
         error: 'required',
         message: 'This value is required'
       }
-    ]
-  };
+    ];
 
   constructor(private fb: FormBuilder,
               private usersService: UsersService) { }

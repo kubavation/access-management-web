@@ -1,7 +1,7 @@
 <div class="field-message" *ngIf="control?.errors">
 
   <div [ngSwitch]="controlError">
-    <div *ngFor="let errConf of controlErrorConfig.errorConfig">
+    <div *ngFor="let errConf of controlErrorConfig">
       <div *ngSwitchCase="errConf.error">
         {{errConf.message}}
       </div>
