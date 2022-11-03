@@ -20,6 +20,10 @@
               <input matInput type="password" formControlName="password" >
             </mat-form-field>
           </div>
+          <app-control-errors
+            [control]="passwordControl"
+            [controlErrorConfig]="passwordErrorConfig">
+          </app-control-errors>
           <div>
             <button mat-button matStepperNext>Next</button>
           </div>

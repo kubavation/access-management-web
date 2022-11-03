@@ -26,9 +26,26 @@ export class CreateUserComponent {
       {
         error: 'required',
         message: 'This value is required'
+      },
+      {
+        error: 'minlength',
+        message: 'Username must have at least 5 characters'
+      },
+      {
+        error: 'usernameAlreadyTaken',
+        message: 'Username already exists'
       }
     ]
-  }
+  };
+
+  passwordErrorConfig: ControlErrorConfig = {
+    errorConfig: [
+      {
+        error: 'required',
+        message: 'This value is required'
+      }
+    ]
+  };
 
   constructor(private fb: FormBuilder,
               private usersService: UsersService) { }
@@ -38,13 +55,8 @@ export class CreateUserComponent {
     return this.basicInformationFormGroup.get('username');
   }
 
-  firstControlError(control: AbstractControl) {
-
-    if (control.touched && control.errors) {
-      return Object.keys(control.errors)[0];
-    }
-
-    return null;
+  get passwordControl(): AbstractControl {
+    return this.basicInformationFormGroup.get('password');
   }
 
 }
