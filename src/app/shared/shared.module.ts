@@ -20,10 +20,13 @@ import {MatCardModule} from "@angular/material/card";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ControlErrorsComponent } from './form-utils/control-errors/control-errors.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ControlErrorsComponent
+  ],
   imports: [
     CommonModule,
     MatSidenavModule,
