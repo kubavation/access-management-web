@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angular/forms";
 import {usernameNotTakenValidator} from "./validation/username-not-taken.validator";
 import {UsersService} from "../service/users.service";
 
@@ -23,5 +23,18 @@ export class CreateUserComponent {
   constructor(private fb: FormBuilder,
               private usersService: UsersService) { }
 
+
+  get usernameControl(): AbstractControl {
+    return this.basicInformationFormGroup.get('username');
+  }
+
+  firstControlError(control: AbstractControl) {
+
+    if (control.touched && control.errors) {
+      return Object.keys(control.errors)[0];
+    }
+
+    return null;
+  }
 
 }

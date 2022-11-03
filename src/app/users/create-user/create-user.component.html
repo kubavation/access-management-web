@@ -9,6 +9,22 @@
               <input matInput formControlName="username" >
             </mat-form-field>
           </div>
+          <div class="field-message" *ngIf="usernameControl.errors">
+
+            <div [ngSwitch]="firstControlError(usernameControl)">
+              <div *ngSwitchCase="'usernameAlreadyTaken'">
+                This username is already taken
+              </div>
+              <div *ngSwitchCase="'required'">
+                This field is required
+              </div>
+              <div *ngSwitchCase="'minlength'">
+                Username minimum length is 5
+              </div>
+            </div>
+
+          </div>
+
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Password</mat-label>
