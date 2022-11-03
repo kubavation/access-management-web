@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {usernameNotTakenValidator} from "./validation/username-not-taken.validator";
+import {UsersService} from "../service/users.service";
 
 @Component({
   selector: 'app-create-user',
@@ -10,11 +12,16 @@ import {FormBuilder, Validators} from "@angular/forms";
 export class CreateUserComponent {
 
   basicInformationFormGroup = this.fb.group({
-    username: ['', Validators.required],
+    username: ['', {
+      validators: [Validators.required, Validators.minLength(5)],
+      asyncValidators: [usernameNotTakenValidator(this.usersService)],
+      updateOn: 'blur'
+    }],
     password: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private usersService: UsersService) { }
 
 
 }
