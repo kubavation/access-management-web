@@ -72,7 +72,8 @@ import { ControlErrorsComponent } from './form-utils/control-errors/control-erro
     MatCardModule,
     MatStepperModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ControlErrorsComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {AbstractControl} from "@angular/forms";
+import {ControlErrorConfig} from "./model/control-error-config";
 
 @Component({
   selector: 'app-control-errors',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlErrorsComponent {
 
+  @Input() control: AbstractControl;
+  @Input() controlErrorConfig: ControlErrorConfig;
+
   constructor() { }
 
+
+  get controlError(): string {
+
+    if (this.control.touched && this.control.errors) {
+      return Object.keys(this.control.errors)[0];
+    }
+
+    return null;
+  }
 
 }

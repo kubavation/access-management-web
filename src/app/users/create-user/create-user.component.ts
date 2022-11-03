@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angular/forms";
 import {usernameNotTakenValidator} from "./validation/username-not-taken.validator";
 import {UsersService} from "../service/users.service";
+import {ControlErrorConfig} from "../../shared/form-utils/control-errors/model/control-error-config";
 
 @Component({
   selector: 'app-create-user',
@@ -19,6 +20,15 @@ export class CreateUserComponent {
     }],
     password: ['', Validators.required]
   });
+
+  usernameErrorConfig: ControlErrorConfig = {
+    errorConfig: [
+      {
+        error: 'required',
+        message: 'This value is required'
+      }
+    ]
+  }
 
   constructor(private fb: FormBuilder,
               private usersService: UsersService) { }
