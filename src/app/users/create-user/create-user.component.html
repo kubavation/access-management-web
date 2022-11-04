@@ -3,9 +3,11 @@
     <mat-step [stepControl]="basicInformationFormGroup">
       <ng-template matStepLabel>Basic informations</ng-template>
       <app-basic-user-information [form]="basicInformationFormGroup"></app-basic-user-information>
+      <button mat-raised-button matStepperNext>Next</button>
     </mat-step>
     <mat-step>
     <ng-template matStepLabel>Basic informations 2</ng-template>
     </mat-step>
   </mat-stepper>
+  <button mat-button (click)="showForm()">show form</button>
 </div>

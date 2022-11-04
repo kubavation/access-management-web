@@ -1,6 +1,6 @@
 import {AbstractControl, AsyncValidatorFn} from "@angular/forms";
 import {UsersService} from "../../service/users.service";
-import {map, tap} from "rxjs";
+import {map} from "rxjs";
 
 export function usernameNotTakenValidator(userSevice: UsersService): AsyncValidatorFn {
   return (control: AbstractControl) => {

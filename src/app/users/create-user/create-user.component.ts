@@ -35,4 +35,8 @@ export class CreateUserComponent {
     return this.basicInformationFormGroup.get('password');
   }
 
+  showForm() {
+    console.log(this.basicInformationFormGroup.getRawValue())
+  }
+
 }
