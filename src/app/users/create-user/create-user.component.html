@@ -5,7 +5,7 @@
       <div class="create-user-container">
          <app-basic-user-information [form]="basicInformationFormGroup"></app-basic-user-information>
       </div>
-      <div>
+      <div class="button-container">
         <button mat-raised-button matStepperNext [disabled]="!(basicInformationFormGroupValid$ | async)">Next</button>
       </div>
     </mat-step>
@@ -14,19 +14,19 @@
       <div class="create-user-container">
         <app-additional-user-information [form]="additionalInformationFormGroup"></app-additional-user-information>
       </div>
-      <div>
+      <div class="button-container">
+        <button mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button matStepperNext [disabled]="!(additionalInformationFormGroupValid$ | async)">Next</button>
-        <button mat-button matStepperPrevious>Back</button>
       </div>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Summary</ng-template>
       <div class="create-user-container">
-        <div></div>
+        todo
       </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button>Save</button>
+      <div class="button-container">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button>Save</button>
       </div>
     </mat-step>
   </mat-stepper>
