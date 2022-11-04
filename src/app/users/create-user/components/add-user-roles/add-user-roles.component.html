@@ -1,1 +1,25 @@
-<p>add-user-roles works!</p>
+<div cdkDropListGroup>
+  <div class="example-container">
+    <h2>Available roles</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="availableRolesMock$ | async"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of availableRolesMock$ | async" cdkDrag>{{item.name}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Chosen roles</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="chosenRoles"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of chosenRoles" cdkDrag>{{item.name}}</div>
+    </div>
+  </div>
+</div>

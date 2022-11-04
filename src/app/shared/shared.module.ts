@@ -21,7 +21,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ControlErrorsComponent } from './form-utils/control-errors/control-errors.component';
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { ControlErrorsComponent } from './form-utils/control-errors/control-erro
     MatCardModule,
     MatStepperModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   exports: [
     MatSidenavModule,
@@ -73,7 +74,8 @@ import { ControlErrorsComponent } from './form-utils/control-errors/control-erro
     MatStepperModule,
     MatInputModule,
     ReactiveFormsModule,
-    ControlErrorsComponent
+    ControlErrorsComponent,
+    DragDropModule
   ]
 })
 export class SharedModule { }
