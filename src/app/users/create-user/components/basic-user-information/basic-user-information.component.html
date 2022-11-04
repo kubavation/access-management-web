@@ -1,8 +1,9 @@
 <div [formGroup]="form">
-  <div>
+
+  <div class="form-input-m7vh">
     <mat-form-field appearance="fill">
       <mat-label>Username</mat-label>
-      <input matInput formControlName="username">
+      <input matInput formControlName="username" >
     </mat-form-field>
     <app-control-errors
       [control]="usernameControl"
@@ -10,7 +11,7 @@
     </app-control-errors>
   </div>
 
-  <div>
+  <div class="form-input-m7vh">
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="password" >
