@@ -5,6 +5,7 @@ import {UsersRoutingModule} from "./users-routing.module";
 import { UsersListComponent } from './users-list/users-list.component';
 import {SharedModule} from "../shared/shared.module";
 import { CreateUserComponent } from './create-user/create-user.component';
+import { BasicUserInformationComponent } from './create-user/components/basic-user-information/basic-user-information.component';
 
 
 
@@ -12,7 +13,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
   declarations: [
     UsersComponent,
     UsersListComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    BasicUserInformationComponent
   ],
   imports: [
     CommonModule,

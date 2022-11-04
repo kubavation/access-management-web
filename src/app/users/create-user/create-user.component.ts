@@ -21,29 +21,7 @@ export class CreateUserComponent {
     password: ['', Validators.required]
   });
 
-  usernameErrorConfig: ControlErrorConfig =
-    [
-      {
-        error: 'required',
-        message: 'This value is required'
-      },
-      {
-        error: 'minlength',
-        message: 'Username must have at least 5 characters'
-      },
-      {
-        error: 'usernameAlreadyTaken',
-        message: 'Username already exists'
-      }
-    ];
 
-  passwordErrorConfig: ControlErrorConfig =
-    [
-      {
-        error: 'required',
-        message: 'This value is required'
-      }
-    ];
 
   constructor(private fb: FormBuilder,
               private usersService: UsersService) { }
