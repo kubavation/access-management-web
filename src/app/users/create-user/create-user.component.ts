@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControlStatus, ValidationErrors, Validators} from "@angular/forms";
 import {usernameNotTakenValidator} from "./validation/username-not-taken.validator";
 import {UsersService} from "../service/users.service";
-import {ControlErrorConfig} from "../../shared/form-utils/control-errors/model/control-error-config";
+import {filter, map, tap} from "rxjs";
 
 @Component({
   selector: 'app-create-user',
@@ -15,25 +15,23 @@ export class CreateUserComponent {
   basicInformationFormGroup = this.fb.group({
     username: ['', {
       validators: [Validators.required, Validators.minLength(5)],
-      asyncValidators: [usernameNotTakenValidator(this.usersService)],
-      updateOn: 'blur'
+      asyncValidators: [usernameNotTakenValidator(this.usersService)]
     }],
-    password: ['', Validators.required]
-  });
+    password: ['', {
+      validators: [Validators.required]
+    }]
+  })
 
+  basicInformationFormGroupValid$ = this.basicInformationFormGroup.statusChanges
+    .pipe(
+      map((status: FormControlStatus) => status === 'VALID')
+    )
 
 
   constructor(private fb: FormBuilder,
-              private usersService: UsersService) { }
-
-
-  get usernameControl(): AbstractControl {
-    return this.basicInformationFormGroup.get('username');
+              private usersService: UsersService) {
   }
 
-  get passwordControl(): AbstractControl {
-    return this.basicInformationFormGroup.get('password');
-  }
 
   showForm() {
     console.log(this.basicInformationFormGroup.getRawValue())
