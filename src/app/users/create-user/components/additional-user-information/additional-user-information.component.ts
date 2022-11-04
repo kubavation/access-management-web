@@ -1,6 +1,9 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {AbstractControl, FormGroup} from "@angular/forms";
-import {ControlErrorConfig} from "../../../../shared/form-utils/control-errors/model/control-error-config";
+import {
+  ControlErrorConfig,
+  REQUIRED_CONTROL_ERROR_CONFIG
+} from "../../../../shared/form-utils/control-errors/model/control-error-config";
 import {DEFAULT_ERROR_MESSAGE} from "../../../../shared/form-utils/control-errors/model/erorr-message";
 
 @Component({
@@ -15,7 +18,7 @@ export class AdditionalUserInformationComponent {
 
   constructor() { }
 
-  errorConfig: ControlErrorConfig = [DEFAULT_ERROR_MESSAGE];
+  errorConfig: ControlErrorConfig = REQUIRED_CONTROL_ERROR_CONFIG;
 
   get emailControl(): AbstractControl {
     return this.form.get('email');

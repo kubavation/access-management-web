@@ -1,6 +1,9 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {AbstractControl, FormGroup} from "@angular/forms";
-import {ControlErrorConfig} from "../../../../shared/form-utils/control-errors/model/control-error-config";
+import {
+  ControlErrorConfig,
+  REQUIRED_CONTROL_ERROR_CONFIG
+} from "../../../../shared/form-utils/control-errors/model/control-error-config";
 
 @Component({
   selector: 'app-basic-user-information',
@@ -30,13 +33,7 @@ export class BasicUserInformationComponent {
       }
     ];
 
-  passwordErrorConfig: ControlErrorConfig =
-    [
-      {
-        error: 'required',
-        message: 'This value is required'
-      }
-    ];
+  passwordErrorConfig: ControlErrorConfig = REQUIRED_CONTROL_ERROR_CONFIG;
 
   get usernameControl(): AbstractControl {
     return this.form.get('username');
