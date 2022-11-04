@@ -6,6 +6,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import {SharedModule} from "../shared/shared.module";
 import { CreateUserComponent } from './create-user/create-user.component';
 import { BasicUserInformationComponent } from './create-user/components/basic-user-information/basic-user-information.component';
+import { AdditionalUserInformationComponent } from './create-user/components/additional-user-information/additional-user-information.component';
 
 
 
@@ -14,7 +15,8 @@ import { BasicUserInformationComponent } from './create-user/components/basic-us
     UsersComponent,
     UsersListComponent,
     CreateUserComponent,
-    BasicUserInformationComponent
+    BasicUserInformationComponent,
+    AdditionalUserInformationComponent
   ],
   imports: [
     CommonModule,

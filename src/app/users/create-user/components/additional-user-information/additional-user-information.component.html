@@ -1,0 +1,36 @@
+<div [formGroup]="form">
+
+  <div class="form-input-m7vh">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    <app-control-errors
+      [control]="emailControl"
+      [controlErrorConfig]="errorConfig">
+    </app-control-errors>
+  </div>
+
+  <div class="form-input-m7vh">
+    <mat-form-field appearance="fill">
+      <mat-label>First name</mat-label>
+      <input matInput type="password" formControlName="firstName" >
+    </mat-form-field>
+    <app-control-errors
+      [control]="firstNameControl"
+      [controlErrorConfig]="errorConfig">
+    </app-control-errors>
+  </div>
+
+  <div class="form-input-m7vh">
+    <mat-form-field appearance="fill">
+      <mat-label>Last name</mat-label>
+      <input matInput type="password" formControlName="lastName" >
+    </mat-form-field>
+    <app-control-errors
+      [control]="lastNameControl"
+      [controlErrorConfig]="errorConfig">
+    </app-control-errors>
+  </div>
+
+</div>

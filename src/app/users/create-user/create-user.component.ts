@@ -27,6 +27,23 @@ export class CreateUserComponent {
       map((status: FormControlStatus) => status === 'VALID')
     )
 
+  additionalInformationFormGroup = this.fb.group({
+    email: ['', {
+      validators: [Validators.required, Validators.email],
+    }],
+    firstName: ['', {
+      validators: [Validators.required]
+    }],
+    lastName: ['', {
+      validators: [Validators.required]
+    }]
+  })
+
+  additionalInformationFormGroupValid$ = this.additionalInformationFormGroup.statusChanges
+    .pipe(
+      map((status: FormControlStatus) => status === 'VALID')
+    )
+
 
   constructor(private fb: FormBuilder,
               private usersService: UsersService) {
