@@ -49,9 +49,8 @@ export class CreateUserComponent {
               private usersService: UsersService) {
   }
 
-
-  showForm() {
+  save(): void {
     console.log(this.basicInformationFormGroup.getRawValue())
+    console.log(this.additionalInformationFormGroup.getRawValue())
   }
-
 }

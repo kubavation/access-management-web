@@ -20,16 +20,25 @@
       </div>
     </mat-step>
     <mat-step>
+      <ng-template matStepLabel>Privileges</ng-template>
+      <div class="create-user-container">
+        <app-add-user-roles></app-add-user-roles>
+      </div>
+      <div class="button-container">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext [disabled]="!(additionalInformationFormGroupValid$ | async)">Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
       <ng-template matStepLabel>Summary</ng-template>
       <div class="create-user-container">
         todo
       </div>
       <div class="button-container">
         <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button>Save</button>
+        <button mat-raised-button (click)="save()">Save</button>
       </div>
     </mat-step>
   </mat-stepper>
-  <button mat-button (click)="showForm()">show form</button>
 </div>
 
