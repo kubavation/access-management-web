@@ -22,7 +22,7 @@
     <mat-step>
       <ng-template matStepLabel>Privileges</ng-template>
       <div class="create-user-container">
-        <app-add-user-roles></app-add-user-roles>
+        <app-add-user-roles [form]="userRolesFormGroup"></app-add-user-roles>
       </div>
       <div class="button-container">
         <button mat-raised-button matStepperPrevious>Back</button>

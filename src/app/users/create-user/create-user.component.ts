@@ -44,6 +44,10 @@ export class CreateUserComponent {
       map((status: FormControlStatus) => status === 'VALID')
     )
 
+  userRolesFormGroup = this.fb.group({
+    roles: []
+  })
+
 
   constructor(private fb: FormBuilder,
               private usersService: UsersService) {
@@ -52,5 +56,6 @@ export class CreateUserComponent {
   save(): void {
     console.log(this.basicInformationFormGroup.getRawValue())
     console.log(this.additionalInformationFormGroup.getRawValue())
+    console.log(this.userRolesFormGroup.getRawValue())
   }
 }

@@ -34,5 +34,7 @@ export class AddUserRolesComponent {
         event.currentIndex,
       );
     }
+
+    this.form.patchValue({roles: this.chosenRoles})
   }
 }
