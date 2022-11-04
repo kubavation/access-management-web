@@ -3,7 +3,12 @@ export interface ErrorMessage {
   message: string;
 }
 
-export const DEFAULT_ERROR_MESSAGE = {
+export const DEFAULT_REQUIRED_ERROR_MESSAGE = {
   error: 'required',
   message: 'This value is required'
+}
+
+export const DEFAULT_EMAIL_ERROR_MESSAGE = {
+  error: 'email',
+  message: 'Please provide a valid email address'
 }
