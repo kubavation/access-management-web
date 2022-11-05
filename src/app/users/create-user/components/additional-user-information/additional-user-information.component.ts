@@ -36,6 +36,14 @@ export class AdditionalUserInformationComponent {
   }
 
   onFindInCompanyManagement({checked}): void {
-    
+    if (checked) {
+      this.emailControl.disable();
+      this.firstNameControl.disable();
+      this.lastNameControl.disable();
+    } else {
+      this.emailControl.enable();
+      this.firstNameControl.enable();
+      this.lastNameControl.enable();
+    }
   }
 }
