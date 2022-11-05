@@ -6,6 +6,7 @@ import {filter, map, Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
 import {RoleService} from "../../roles/service/role.service";
 import {Role} from "../../roles/model/role";
+import {CreateUserRequest} from "../model/create-user-request";
 
 @Component({
   selector: 'app-create-user',
@@ -21,7 +22,7 @@ export class CreateUserComponent {
     username: ['', {
       validators: [Validators.required, Validators.minLength(5)],
       asyncValidators: [usernameNotTakenValidator(this.usersService)]
-    }],
+    } ],
     password: ['', {
       validators: [Validators.required]
     }]
@@ -61,9 +62,16 @@ export class CreateUserComponent {
   }
 
   save(): void {
-    console.log(this.basicInformationFormGroup.getRawValue())
-    console.log(this.additionalInformationFormGroup.getRawValue())
-    console.log(this.userRolesFormGroup.getRawValue())
+
+    const createUserRequest: CreateUserRequest = {
+      ...this.basicInformationFormGroup.value,
+      ...this.additionalInformationFormGroup.value,
+      ...this.userRolesFormGroup.value
+    } as CreateUserRequest;
+
+    this.usersService.createUser(createUserRequest)
+      .subscribe(res => console.log(res))
+
   }
 
   cancelUserCreation(): void {
