@@ -2,8 +2,10 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControlStatus, ValidationErrors, Validators} from "@angular/forms";
 import {usernameNotTakenValidator} from "./validation/username-not-taken.validator";
 import {UsersService} from "../service/users.service";
-import {filter, map, tap} from "rxjs";
+import {filter, map, Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
+import {RoleService} from "../../roles/service/role.service";
+import {Role} from "../../roles/model/role";
 
 @Component({
   selector: 'app-create-user',
@@ -12,6 +14,8 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateUserComponent {
+
+  roles$ = this.roleService.getRoles();
 
   basicInformationFormGroup = this.fb.group({
     username: ['', {
@@ -52,6 +56,7 @@ export class CreateUserComponent {
 
   constructor(private fb: FormBuilder,
               private router: Router,
+              private roleService: RoleService,
               private usersService: UsersService) {
   }
 

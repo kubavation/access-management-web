@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {of} from "rxjs";
+import {map, Observable, of, tap} from "rxjs";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {RoleService} from "../../../../roles/service/role.service";
 import {Role} from "../../../../roles/model/role";
@@ -15,9 +15,9 @@ export class AddUserRolesComponent {
 
   @Input() form: FormGroup;
 
-  availableRoles = this.roleService.getRoles();
+  @Input() availableRoles: Role[];
 
-  chosenRoles = [];
+  chosenRoles: Role[] = [];
 
   constructor(private roleService: RoleService) { }
 
