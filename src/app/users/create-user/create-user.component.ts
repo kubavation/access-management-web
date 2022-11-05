@@ -70,7 +70,9 @@ export class CreateUserComponent {
     } as CreateUserRequest;
 
     this.usersService.createUser(createUserRequest)
-      .subscribe(res => console.log(res))
+      .subscribe(_ => {
+        this.cancelUserCreation();
+      })
 
   }
 
