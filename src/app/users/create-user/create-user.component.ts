@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, FormControlStatus, ValidationErrors, Valid
 import {usernameNotTakenValidator} from "./validation/username-not-taken.validator";
 import {UsersService} from "../service/users.service";
 import {filter, map, tap} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-user',
@@ -50,6 +51,7 @@ export class CreateUserComponent {
 
 
   constructor(private fb: FormBuilder,
+              private router: Router,
               private usersService: UsersService) {
   }
 
@@ -58,4 +60,9 @@ export class CreateUserComponent {
     console.log(this.additionalInformationFormGroup.getRawValue())
     console.log(this.userRolesFormGroup.getRawValue())
   }
+
+  cancelUserCreation(): void {
+    this.router.navigate(['/users']);
+  }
+
 }
