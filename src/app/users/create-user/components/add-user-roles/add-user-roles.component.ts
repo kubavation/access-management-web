@@ -2,6 +2,8 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {of} from "rxjs";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {RoleService} from "../../../../roles/service/role.service";
+import {Role} from "../../../../roles/model/role";
 
 @Component({
   selector: 'app-add-user-roles',
@@ -13,17 +15,13 @@ export class AddUserRolesComponent {
 
   @Input() form: FormGroup;
 
-  availableRolesMock$ = of([
-    {name: "ADMIN"},
-    {name: "USER"},
-    {name: "TODO"},
-  ])
+  availableRoles = this.roleService.getRoles();
 
   chosenRoles = [];
 
-  constructor() { }
+  constructor(private roleService: RoleService) { }
 
-  drop(event: CdkDragDrop<any[]>) {
+  drop(event: CdkDragDrop<Role[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
