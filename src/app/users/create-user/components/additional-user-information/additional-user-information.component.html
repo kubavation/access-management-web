@@ -1,5 +1,11 @@
 <div [formGroup]="form">
 
+  <div>
+    <mat-slide-toggle
+      (change)="onFindInCompanyManagement($event)"
+      formControlName="connectWithCompanyManagement">Find in Company Management</mat-slide-toggle>
+  </div>
+
   <div class="form-input-m7vh">
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>

@@ -35,4 +35,7 @@ export class AdditionalUserInformationComponent {
     return this.form.get('lastName');
   }
 
+  onFindInCompanyManagement({checked}): void {
+    
+  }
 }

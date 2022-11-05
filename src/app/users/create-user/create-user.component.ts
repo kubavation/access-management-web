@@ -5,7 +5,6 @@ import {UsersService} from "../service/users.service";
 import {filter, map, Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
 import {RoleService} from "../../roles/service/role.service";
-import {Role} from "../../roles/model/role";
 import {CreateUserRequest} from "../model/create-user-request";
 
 @Component({
@@ -42,7 +41,9 @@ export class CreateUserComponent {
     }],
     lastName: ['', {
       validators: [Validators.required]
-    }]
+    }],
+    connectWithCompanyManagement: [false],
+    employeeId: [null]
   })
 
   additionalInformationFormGroupValid$ = this.additionalInformationFormGroup.statusChanges
