@@ -13,7 +13,10 @@
     <mat-step>
       <ng-template matStepLabel>Additional information</ng-template>
       <div class="create-user-container">
-        <app-additional-user-information [form]="additionalInformationFormGroup"></app-additional-user-information>
+        <app-additional-user-information
+          [form]="additionalInformationFormGroup"
+          [cmEmployees]="cmEmployees$ | async">
+        </app-additional-user-information>
       </div>
       <div class="button-container">
         <button mat-raised-button matStepperPrevious>Back</button>

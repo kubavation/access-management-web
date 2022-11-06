@@ -4,6 +4,7 @@ import {map, Observable, of, tap} from "rxjs";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {RoleService} from "../../../../roles/service/role.service";
 import {Role} from "../../../../roles/model/role";
+import {CmEmployee} from "../../../../shared/company-management-utils/model/cm-employee";
 
 @Component({
   selector: 'app-add-user-roles',

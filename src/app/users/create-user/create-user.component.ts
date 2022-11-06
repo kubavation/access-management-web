@@ -6,6 +6,9 @@ import {filter, map, Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
 import {RoleService} from "../../roles/service/role.service";
 import {CreateUserRequest} from "../model/create-user-request";
+import {
+  CompanyManagementUtilsService
+} from "../../shared/company-management-utils/service/company-management-utils.service";
 
 @Component({
   selector: 'app-create-user',
@@ -16,6 +19,7 @@ import {CreateUserRequest} from "../model/create-user-request";
 export class CreateUserComponent {
 
   roles$ = this.roleService.getRoles();
+  cmEmployees$ = this.companyManagementUtilsService.getCmEmployees();
 
   basicInformationFormGroup = this.fb.group({
     username: ['', {
@@ -59,6 +63,7 @@ export class CreateUserComponent {
   constructor(private fb: FormBuilder,
               private router: Router,
               private roleService: RoleService,
+              private companyManagementUtilsService: CompanyManagementUtilsService,
               private usersService: UsersService) {
   }
 

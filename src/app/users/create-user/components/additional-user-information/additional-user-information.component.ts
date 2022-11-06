@@ -6,6 +6,7 @@ import {
 } from "../../../../shared/form-utils/control-errors/model/control-error-config";
 import {MatDialog} from "@angular/material/dialog";
 import {CmEmployeesComponent} from "./components/cm-employees/cm-employees.component";
+import {CmEmployee} from "../../../../shared/company-management-utils/model/cm-employee";
 
 @Component({
   selector: 'app-additional-user-information',
@@ -16,6 +17,7 @@ import {CmEmployeesComponent} from "./components/cm-employees/cm-employees.compo
 export class AdditionalUserInformationComponent {
 
   @Input() form: FormGroup;
+  @Input() cmEmployees: CmEmployee[];
 
   constructor(public dialog: MatDialog) { }
 
