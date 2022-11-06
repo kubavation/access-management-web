@@ -6,8 +6,8 @@
       formControlName="connectWithCompanyManagement">Search in Company Management</mat-slide-toggle>
   </div>
 
-  <div>
-
+  <div *ngIf="connectWithCompanyManagementControl.value">
+    <button mat-button (click)="onCmEmployeeSearch()">Search</button>
   </div>
 
   <div class="form-input-m7vh">

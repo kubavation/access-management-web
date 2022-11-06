@@ -4,6 +4,8 @@ import {
   ControlErrorConfig, EMAIL_CONTROL_ERROR_CONFIG,
   REQUIRED_CONTROL_ERROR_CONFIG
 } from "../../../../shared/form-utils/control-errors/model/control-error-config";
+import {MatDialog} from "@angular/material/dialog";
+import {CmEmployeesComponent} from "./components/cm-employees/cm-employees.component";
 
 @Component({
   selector: 'app-additional-user-information',
@@ -15,7 +17,7 @@ export class AdditionalUserInformationComponent {
 
   @Input() form: FormGroup;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   defaultErrorConfig: ControlErrorConfig = REQUIRED_CONTROL_ERROR_CONFIG;
   emailErrorConfig: ControlErrorConfig = [
@@ -35,6 +37,10 @@ export class AdditionalUserInformationComponent {
     return this.form.get('lastName');
   }
 
+  get connectWithCompanyManagementControl(): AbstractControl {
+    return this.form.get('connectWithCompanyManagement');
+  }
+
   onFindInCompanyManagement({checked}): void {
     if (checked) {
       this.emailControl.disable();
@@ -46,4 +52,12 @@ export class AdditionalUserInformationComponent {
       this.lastNameControl.enable();
     }
   }
+
+  onCmEmployeeSearch(): void {
+    const dialogRef = this.dialog.open(CmEmployeesComponent);
+
+    dialogRef.afterClosed()
+      .subscribe(_ => console.log(_))
+  }
+
 }
