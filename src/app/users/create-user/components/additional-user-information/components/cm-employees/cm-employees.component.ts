@@ -1,5 +1,7 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {CmEmployee} from "../../../../../../shared/company-management-utils/model/cm-employee";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-cm-employees',
@@ -8,6 +10,13 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class CmEmployeesComponent {
 
-  constructor(public dialogRef: MatDialogRef<CmEmployeesComponent>) { }
+  dataSource: MatTableDataSource<CmEmployee>;
+
+  public readonly DATA_TABLE_COLUMNS = ['firstName', 'lastName'];
+
+  constructor(public dialogRef: MatDialogRef<CmEmployeesComponent>,
+              @Inject(MAT_DIALOG_DATA) dialogData: {employees: CmEmployee[]} ) {
+    this.dataSource = new MatTableDataSource<CmEmployee>(dialogData.employees);
+  }
 
 }

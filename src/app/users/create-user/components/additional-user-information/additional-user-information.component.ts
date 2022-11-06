@@ -57,7 +57,7 @@ export class AdditionalUserInformationComponent {
 
   onCmEmployeeSearch(): void {
     const dialogRef = this.dialog.open(CmEmployeesComponent, {
-      width: '500px',
+      width: '1000px',
       height: '400px',
       data: {
         employees: this.cmEmployees
