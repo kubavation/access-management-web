@@ -19,4 +19,11 @@ export class CmEmployeesComponent {
     this.dataSource = new MatTableDataSource<CmEmployee>(dialogData.employees);
   }
 
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+
+  onSave(): void {
+    console.log('save')
+  }
 }
