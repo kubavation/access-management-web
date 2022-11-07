@@ -20,10 +20,11 @@ export class CmEmployeesComponent {
   }
 
   onCancel(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(null);
   }
 
   onSave(): void {
     console.log('save')
+    this.dialogRef.close("todo");
   }
 }

@@ -39,6 +39,10 @@ export class AdditionalUserInformationComponent {
     return this.form.get('lastName');
   }
 
+  get connectWithCompanyManagementControl(): AbstractControl {
+    return this.form.get('connectWithCompanyManagement');
+  }
+
 
   onFindInCompanyManagement({checked}): void {
     if (checked) {
@@ -63,7 +67,12 @@ export class AdditionalUserInformationComponent {
     });
 
     dialogRef.afterClosed()
-      .subscribe(_ => console.log(_))
+      .subscribe(res => {
+        if (!res) {
+          this.connectWithCompanyManagementControl.patchValue(false);
+          this.onFindInCompanyManagement({checked: false})
+        }
+      })
   }
 
 }
