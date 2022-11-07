@@ -39,15 +39,13 @@ export class AdditionalUserInformationComponent {
     return this.form.get('lastName');
   }
 
-  get connectWithCompanyManagementControl(): AbstractControl {
-    return this.form.get('connectWithCompanyManagement');
-  }
 
   onFindInCompanyManagement({checked}): void {
     if (checked) {
       this.emailControl.disable();
       this.firstNameControl.disable();
       this.lastNameControl.disable();
+      this.onCmEmployeeSearch();
     } else {
       this.emailControl.enable();
       this.firstNameControl.enable();
