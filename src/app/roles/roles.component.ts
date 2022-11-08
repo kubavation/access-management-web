@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {RoleService} from "./service/role.service";
 
 @Component({
   selector: 'app-roles',
   templateUrl: './roles.component.html',
-  styleUrls: ['./roles.component.scss']
+  styleUrls: ['./roles.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RolesComponent implements OnInit {
+export class RolesComponent{
 
-  constructor() { }
+  roles$ = this.rolesService.getRoles();
 
-  ngOnInit(): void {
-  }
+  constructor(private rolesService: RoleService) { }
 
 }
