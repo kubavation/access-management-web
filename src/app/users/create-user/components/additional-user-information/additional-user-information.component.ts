@@ -44,6 +44,10 @@ export class AdditionalUserInformationComponent {
     return this.form.get('connectWithCompanyManagement');
   }
 
+  get employeeIdControl(): AbstractControl {
+    return this.form.get('employeeId');
+  }
+
 
   onFindInCompanyManagement({checked}): void {
     if (checked) {
@@ -66,7 +70,8 @@ export class AdditionalUserInformationComponent {
       width: '1000px',
       height: '400px',
       data: {
-        employees: this.cmEmployees
+        employees: this.cmEmployees,
+        selectedEmployeeId: this.employeeIdControl.value
       }};
 
     this.dialog.open(CmEmployeesComponent, dialogData)

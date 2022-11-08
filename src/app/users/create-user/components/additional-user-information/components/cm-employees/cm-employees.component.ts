@@ -17,8 +17,11 @@ export class CmEmployeesComponent {
   public readonly DATA_TABLE_COLUMNS = ['firstName', 'lastName'];
 
   constructor(public dialogRef: MatDialogRef<CmEmployeesComponent>,
-              @Inject(MAT_DIALOG_DATA) dialogData: {employees: CmEmployee[]} ) {
+              @Inject(MAT_DIALOG_DATA) dialogData: {employees: CmEmployee[], selectedEmployeeId: number | null} ) {
     this.dataSource = new MatTableDataSource<CmEmployee>(dialogData.employees);
+    if (!!dialogData.selectedEmployeeId) {
+      this.selected = dialogData.employees.find(e => e.id === dialogData.selectedEmployeeId);
+    }
   }
 
   onCancel(): void {
