@@ -19,6 +19,7 @@ export class AdditionalUserInformationComponent {
   @Input() form: FormGroup;
   @Input() cmEmployees: CmEmployee[];
 
+
   constructor(public dialog: MatDialog) { }
 
   defaultErrorConfig: ControlErrorConfig = REQUIRED_CONTROL_ERROR_CONFIG;
@@ -60,17 +61,17 @@ export class AdditionalUserInformationComponent {
   }
 
   onCmEmployeeSearch(): void {
-    const dialogRef = this.dialog.open(CmEmployeesComponent, {
+
+    const dialogData = {
       width: '1000px',
       height: '400px',
       data: {
         employees: this.cmEmployees
-      }
-    });
+      }};
 
-    dialogRef.afterClosed()
+    this.dialog.open(CmEmployeesComponent, dialogData)
+      .afterClosed()
       .subscribe(res => {
-        console.log(res)
         if (!res) {
           this.connectWithCompanyManagementControl.patchValue(false);
           this.onFindInCompanyManagement({checked: false})
@@ -82,6 +83,7 @@ export class AdditionalUserInformationComponent {
           })
         }
       })
+
   }
 
 }
