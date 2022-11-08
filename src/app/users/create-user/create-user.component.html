@@ -1,5 +1,5 @@
 <div>
-  <mat-stepper #createUserStepper>
+  <mat-stepper #createUserStepper [linear]="true">
     <mat-step [stepControl]="basicInformationFormGroup">
       <ng-template matStepLabel>Basic information</ng-template>
       <div class="create-user-container">
