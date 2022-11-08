@@ -51,6 +51,7 @@ export class AdditionalUserInformationComponent {
       this.lastNameControl.disable();
       this.onCmEmployeeSearch();
     } else {
+      this.form.reset();
       this.emailControl.enable();
       this.firstNameControl.enable();
       this.lastNameControl.enable();
