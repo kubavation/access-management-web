@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {CmEmployee} from "../../../../../../shared/company-management-utils/model/cm-employee";
 import {MatTableDataSource} from "@angular/material/table";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-cm-employees',
