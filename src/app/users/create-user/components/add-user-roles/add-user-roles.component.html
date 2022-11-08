@@ -7,7 +7,9 @@
       [cdkDropListData]="availableRoles"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of availableRoles" cdkDrag>{{item.name}}</div>
+      <div class="example-box" *ngFor="let item of availableRoles" cdkDrag>
+        {{item.name}}
+      </div>
     </div>
   </div>
 
