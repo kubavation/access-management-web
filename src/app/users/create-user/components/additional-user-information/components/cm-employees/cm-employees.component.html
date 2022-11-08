@@ -14,7 +14,10 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="DATA_TABLE_COLUMNS"></tr>
+
     <tr mat-row
+        [class.row-selected-row]="selected?.id === row.id"
+        (click)="selected = row"
         *matRowDef="let row; columns: DATA_TABLE_COLUMNS;"></tr>
 
   </table>
@@ -22,5 +25,5 @@
 </div>
 <div mat-dialog-actions class="dialog-action-container">
   <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onSave()">Save</button>
+  <button mat-button [disabled]="!selected" (click)="onSave()">Save</button>
 </div>

@@ -11,6 +11,7 @@ import {MatTableDataSource} from "@angular/material/table";
 export class CmEmployeesComponent {
 
   dataSource: MatTableDataSource<CmEmployee>;
+  selected: CmEmployee;
 
   public readonly DATA_TABLE_COLUMNS = ['firstName', 'lastName'];
 
@@ -24,7 +25,6 @@ export class CmEmployeesComponent {
   }
 
   onSave(): void {
-    console.log('save')
-    this.dialogRef.close("todo");
+    this.dialogRef.close(this.selected);
   }
 }

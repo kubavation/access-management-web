@@ -68,9 +68,16 @@ export class AdditionalUserInformationComponent {
 
     dialogRef.afterClosed()
       .subscribe(res => {
+        console.log(res)
         if (!res) {
           this.connectWithCompanyManagementControl.patchValue(false);
           this.onFindInCompanyManagement({checked: false})
+        } else {
+          this.form.patchValue({
+            firstName: res.firstName,
+            lastName: res.lastName,
+            employeeId: res.id
+          })
         }
       })
   }

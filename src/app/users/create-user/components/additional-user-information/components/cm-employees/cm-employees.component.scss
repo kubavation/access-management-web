@@ -7,3 +7,16 @@
 .mat-dialog-content-container {
   height: calc(100% - 96px);
 }
+
+.mat-row:hover .mat-cell {
+  border-color: black;
+}
+
+.row-selected-row {
+  font-weight: bold;
+}
+
+.demo-row-is-clicked {
+
+}
+
