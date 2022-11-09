@@ -16,6 +16,8 @@ export class RolesListComponent {
 
   _dataSource: MatTableDataSource<Role>;
 
+  public readonly DATA_TABLE_COLUMNS = ['name','desc'];
+
   constructor() { }
 
 }

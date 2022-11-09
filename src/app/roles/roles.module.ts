@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RolesRoutingModule} from "./roles-routing.module";
 import { RolesComponent } from './roles.component';
 import { RolesListComponent } from './components/roles-list/roles-list.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 
@@ -11,9 +12,10 @@ import { RolesListComponent } from './components/roles-list/roles-list.component
     RolesComponent,
     RolesListComponent
   ],
-  imports: [
-    CommonModule,
-    RolesRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        RolesRoutingModule,
+        SharedModule
+    ]
 })
 export class RolesModule { }
