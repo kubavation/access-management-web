@@ -14,10 +14,15 @@ export class RolesListComponent {
     this._dataSource = new MatTableDataSource<Role>(roles);
   }
 
+  selected: Role | null;
   _dataSource: MatTableDataSource<Role>;
 
   public readonly DATA_TABLE_COLUMNS = ['name','desc'];
 
   constructor() { }
 
+  onRowSelect(row): void {
+    this.selected = row;
+    console.log(this.selected)
+  }
 }
