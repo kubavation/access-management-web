@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-role-modal',
@@ -8,7 +9,20 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class RoleModalComponent {
 
-  constructor(private dialogRef: MatDialogRef<RoleModalComponent>) { }
+  form = this.fb.group({
+    name: ['', Validators.required],
+    desc: ['', Validators.required]
+  })
+
+  constructor(private dialogRef: MatDialogRef<RoleModalComponent>,
+              private fb: FormBuilder) { }
 
 
+  onCancel() {
+    this.dialogRef.close();
+  }
+
+  onSave() {
+    this.dialogRef.close(this.form.getRawValue());
+  }
 }

@@ -1,3 +1,27 @@
-<div>
-  todo
+<h1 mat-dialog-title>Add role</h1>
+<div mat-dialog-content class="mat-dialog-content-container">
+
+ <div [formGroup]="form">
+
+   <div>
+     <mat-form-field appearance="fill">
+       <mat-label>Name</mat-label>
+       <input matInput formControlName="name" >
+     </mat-form-field>
+   </div>
+
+   <div>
+     <mat-form-field appearance="fill">
+       <mat-label>Description</mat-label>
+       <input matInput formControlName="desc">
+     </mat-form-field>
+   </div>
+
+
+ </div>
+
+</div>
+<div mat-dialog-actions class="dialog-action-container">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [disabled]="!form.valid" (click)="onSave()">Save</button>
 </div>
