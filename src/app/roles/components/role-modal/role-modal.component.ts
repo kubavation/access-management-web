@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, Validators} from "@angular/forms";
+import {CmEmployee} from "../../../shared/company-management-utils/model/cm-employee";
+import {Role} from "../../model/role";
 
 @Component({
   selector: 'app-role-modal',
@@ -15,7 +17,12 @@ export class RoleModalComponent {
   })
 
   constructor(private dialogRef: MatDialogRef<RoleModalComponent>,
-              private fb: FormBuilder) { }
+              @Inject(MAT_DIALOG_DATA) dialogData: {role: Role | null},
+              private fb: FormBuilder) {
+    if (dialogData) {
+      this.form.patchValue(dialogData.role);
+    }
+  }
 
 
   onCancel() {

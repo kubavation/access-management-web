@@ -37,7 +37,13 @@ export class RolesComponent {
   }
 
   editRole(): void {
-
+    this.dialog.open(RoleModalComponent, {
+      width: '500px',
+      height: '400px',
+      data: {
+        role: this.selectedRole
+      }
+    })
   }
 
   deleteRole(): void {
