@@ -26,10 +26,9 @@ export class RolesComponent {
       width: '500px',
       height: '400px'
     }).afterClosed()
-      .pipe(filter(val => !!val))
-      .subscribe(result => {
-          this.rolesService.createRole(result)
-            .subscribe(_ => this.refreshRolesBs$.next())
-      })
+      .pipe(
+        filter(val => !!val),
+        switchMap(role => this.rolesService.createRole(role)))
+      .subscribe(_ => this.refreshRolesBs$.next());
   }
 }
