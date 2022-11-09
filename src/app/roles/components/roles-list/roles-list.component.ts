@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Role} from "../../model/role";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-roles-list',
@@ -9,7 +10,11 @@ import {Role} from "../../model/role";
 })
 export class RolesListComponent {
 
-  @Input() roles: Role[];
+  @Input() set roles(roles: Role[]) {
+    this._dataSource = new MatTableDataSource<Role>(roles);
+  }
+
+  _dataSource: MatTableDataSource<Role>;
 
   constructor() { }
 
