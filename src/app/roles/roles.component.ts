@@ -13,4 +13,7 @@ export class RolesComponent{
 
   constructor(private rolesService: RoleService) { }
 
+  addRole(): void {
+
+  }
 }
