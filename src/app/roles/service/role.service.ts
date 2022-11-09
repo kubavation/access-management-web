@@ -14,4 +14,8 @@ export class RoleService {
   public getRoles(): Observable<Role[]> {
     return this.http.get<Role[]>(`${Env.url}/roles`);
   }
+
+  public createRole(role: Role): Observable<void> {
+    return this.http.post<void>(`${Env.url}/roles`, role);
+  }
 }

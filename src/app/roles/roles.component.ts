@@ -9,7 +9,7 @@ import {RoleModalComponent} from "./components/role-modal/role-modal.component";
   styleUrls: ['./roles.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RolesComponent{
+export class RolesComponent {
 
   roles$ = this.rolesService.getRoles();
 
@@ -20,6 +20,12 @@ export class RolesComponent{
     this.dialog.open(RoleModalComponent, {
       width: '500px',
       height: '400px'
-    })
+    }).afterClosed()
+      .subscribe(result => {
+        if (!!result) {
+          this.rolesService.createRole(result)
+            .subscribe(res => console.log(res))
+        }
+      })
   }
 }
