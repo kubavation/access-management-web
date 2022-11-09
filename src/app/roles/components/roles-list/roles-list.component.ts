@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Role} from "../../model/role";
 import {MatTableDataSource} from "@angular/material/table";
 
@@ -14,6 +14,8 @@ export class RolesListComponent {
     this._dataSource = new MatTableDataSource<Role>(roles);
   }
 
+  @Output() afterRoleSelected = new EventEmitter<Role>();
+
   selected: Role | null;
   _dataSource: MatTableDataSource<Role>;
 
@@ -23,6 +25,6 @@ export class RolesListComponent {
 
   onRowSelect(row): void {
     this.selected = row;
-    console.log(this.selected)
+    this.afterRoleSelected.next(this.selected);
   }
 }

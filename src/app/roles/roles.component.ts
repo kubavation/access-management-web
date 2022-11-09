@@ -3,6 +3,7 @@ import {RoleService} from "./service/role.service";
 import {MatDialog} from "@angular/material/dialog";
 import {RoleModalComponent} from "./components/role-modal/role-modal.component";
 import {BehaviorSubject, combineLatest, filter, switchMap} from "rxjs";
+import {Role} from "./model/role";
 
 @Component({
   selector: 'app-roles',
@@ -17,6 +18,9 @@ export class RolesComponent {
   roles$ = this.refreshRolesBs$.pipe(
     switchMap(_ => this.rolesService.getRoles())
   );
+
+
+  selectedRole: Role | null;
 
   constructor(private rolesService: RoleService,
               private dialog: MatDialog) { }

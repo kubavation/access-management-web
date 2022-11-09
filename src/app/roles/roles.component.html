@@ -4,5 +4,8 @@
     <button mat-raised-button (click)="editRole()">Edit</button>
     <button mat-raised-button (click)="deleteRole()">Delete</button>
   </div>
-  <app-roles-list [roles]="roles$ | async"></app-roles-list>
+  <app-roles-list
+    [roles]="roles$ | async"
+    (afterRoleSelected)="selectedRole = $event">
+  </app-roles-list>
 </div>
