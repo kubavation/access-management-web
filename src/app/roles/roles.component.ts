@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RoleService} from "./service/role.service";
 import {MatDialog} from "@angular/material/dialog";
 import {RoleModalComponent} from "./components/role-modal/role-modal.component";
-import {BehaviorSubject, combineLatest, switchMap} from "rxjs";
+import {BehaviorSubject, combineLatest, filter, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-roles',
@@ -26,11 +26,10 @@ export class RolesComponent {
       width: '500px',
       height: '400px'
     }).afterClosed()
+      .pipe(filter(val => !!val))
       .subscribe(result => {
-        if (!!result) {
           this.rolesService.createRole(result)
             .subscribe(_ => this.refreshRolesBs$.next())
-        }
       })
   }
 }
