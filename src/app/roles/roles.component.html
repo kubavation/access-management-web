@@ -1,4 +1,8 @@
 <div>
-  <button mat-raised-button (click)="addRole()">Add role</button>
+  <div class="role-actions">
+    <button mat-raised-button (click)="addRole()">Add</button>
+    <button mat-raised-button (click)="editRole()">Edit</button>
+    <button mat-raised-button (click)="deleteRole()">Delete</button>
+  </div>
   <app-roles-list [roles]="roles$ | async"></app-roles-list>
 </div>

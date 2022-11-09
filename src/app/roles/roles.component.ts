@@ -31,4 +31,12 @@ export class RolesComponent {
         switchMap(role => this.rolesService.createRole(role)))
       .subscribe(_ => this.refreshRolesBs$.next());
   }
+
+  editRole(): void {
+
+  }
+
+  deleteRole(): void {
+
+  }
 }
