@@ -10,6 +10,7 @@ import { AdditionalUserInformationComponent } from './create-user/components/add
 import { AddUserRolesComponent } from './create-user/components/add-user-roles/add-user-roles.component';
 import { CmEmployeesComponent } from './create-user/components/additional-user-information/components/cm-employees/cm-employees.component';
 import {RolesModule} from "../roles/roles.module";
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 
@@ -21,7 +22,8 @@ import {RolesModule} from "../roles/roles.module";
     BasicUserInformationComponent,
     AdditionalUserInformationComponent,
     AddUserRolesComponent,
-    CmEmployeesComponent
+    CmEmployeesComponent,
+    UserDetailsComponent
   ],
     imports: [
         CommonModule,
