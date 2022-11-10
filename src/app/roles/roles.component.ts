@@ -2,9 +2,10 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RoleService} from "./service/role.service";
 import {MatDialog} from "@angular/material/dialog";
 import {RoleModalComponent} from "./components/role-modal/role-modal.component";
-import {BehaviorSubject, combineLatest, filter, switchMap} from "rxjs";
+import {BehaviorSubject, catchError, combineLatest, EMPTY, filter, switchMap, tap} from "rxjs";
 import {Role} from "./model/role";
 import {ConfirmationModalComponent} from "../shared/modals/confirmation-modal/confirmation-modal.component";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-roles',
@@ -33,7 +34,8 @@ export class RolesComponent {
     }).afterClosed()
       .pipe(
         filter(val => !!val),
-        switchMap(role => this.rolesService.createRole(role)))
+        switchMap(role => this.rolesService.createRole(role))
+      )
       .subscribe(_ => this.refreshRolesBs$.next());
   }
 

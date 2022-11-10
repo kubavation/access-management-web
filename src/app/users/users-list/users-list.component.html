@@ -14,6 +14,8 @@
 
     <tr mat-header-row *matHeaderRowDef="DATA_TABLE_COLUMNS"></tr>
     <tr mat-row
+        [class.row-selected-row]="_selected?.id === row.id"
+        (click)="onRowSelect(row)"
         *matRowDef="let row; columns: DATA_TABLE_COLUMNS;"></tr>
 
   </table>

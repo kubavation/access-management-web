@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {UsersService} from "./service/users.service";
 import {Router} from "@angular/router";
+import {User} from "./model/user";
 
 @Component({
   selector: 'app-users',
@@ -11,6 +12,7 @@ import {Router} from "@angular/router";
 export class UsersComponent{
 
   users$ = this.usersService.getUsers();
+  selectedUser: User;
 
   constructor(private usersService: UsersService,
               private router: Router) { }

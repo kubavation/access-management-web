@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {User} from "../model/user";
 import {MatTable, MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
@@ -21,11 +21,19 @@ export class UsersListComponent {
     this.dataSource.paginator = this._paginator;
   }
 
+  @Output() afterUserSelected = new EventEmitter<User>();
+
   dataSource: MatTableDataSource<User>;
+  _selected: User | null;
 
   public readonly DATA_TABLE_COLUMNS = ['id', 'username'];
 
 
   constructor() { }
 
+
+  onRowSelect(row): void {
+    this._selected = row;
+    this.afterUserSelected.next(this._selected);
+  }
 }
