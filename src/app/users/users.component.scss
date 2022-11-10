@@ -1,7 +1,13 @@
 .user-details-containers {
   margin-top: 10vh;
+  display: flex;
+  gap: 30px 30px;
 }
 
 .user-details-roles {
+  width: 50%;
+}
+
+.user-details {
   width: 50%;
 }
