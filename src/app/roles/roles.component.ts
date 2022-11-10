@@ -43,7 +43,11 @@ export class RolesComponent {
       data: {
         role: this.selectedRole
       }
-    })
+    }).afterClosed()
+      .pipe(
+        filter(val => !!val),
+        switchMap(role => this.rolesService.updateRole(role)))
+      .subscribe(_ => this.refreshRolesBs$.next());
   }
 
   deleteRole(): void {

@@ -18,4 +18,14 @@ export class RoleService {
   public createRole(role: Role): Observable<void> {
     return this.http.post<void>(`${Env.url}/roles`, role);
   }
+
+  public updateRole(role: Role): Observable<void> {
+    console.log(role)
+    return this.http.put<void>(`${Env.url}/roles/${role.name}`, role);
+  }
+
+  public deleteRole(role: Role): Observable<void> {
+    return this.http.delete<void>(`${Env.url}/roles/${role.name}`);
+  }
+
 }
