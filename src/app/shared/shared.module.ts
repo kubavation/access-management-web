@@ -22,10 +22,12 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ControlErrorsComponent } from './form-utils/control-errors/control-errors.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ConfirmationModalComponent } from './modals/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   declarations: [
-    ControlErrorsComponent
+    ControlErrorsComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     CommonModule,

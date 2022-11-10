@@ -20,7 +20,6 @@ export class RoleService {
   }
 
   public updateRole(role: Role): Observable<void> {
-    console.log(role)
     return this.http.put<void>(`${Env.url}/roles/${role.name}`, role);
   }
 
