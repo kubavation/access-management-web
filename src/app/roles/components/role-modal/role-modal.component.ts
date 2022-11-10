@@ -21,9 +21,13 @@ export class RoleModalComponent {
               private fb: FormBuilder) {
     if (dialogData) {
       this.form.patchValue(dialogData.role);
+      this.nameControl.disable();
     }
   }
 
+  get nameControl() {
+    return this.form.get('name');
+  }
 
   onCancel() {
     this.dialogRef.close();
