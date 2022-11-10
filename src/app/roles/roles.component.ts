@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {RoleModalComponent} from "./components/role-modal/role-modal.component";
 import {BehaviorSubject, combineLatest, filter, switchMap} from "rxjs";
 import {Role} from "./model/role";
+import {ConfirmationModalComponent} from "../shared/modals/confirmation-modal/confirmation-modal.component";
 
 @Component({
   selector: 'app-roles',
@@ -51,6 +52,16 @@ export class RolesComponent {
   }
 
   deleteRole(): void {
-
+    this.dialog.open(ConfirmationModalComponent, {
+      width: '500px',
+      height: '400px',
+      data: {
+        object: this.selectedRole.name
+      }
+    }).afterClosed()
+      .pipe(
+        filter(val => !!val),
+        switchMap(_ => this.rolesService.deleteRole(this.selectedRole)))
+      .subscribe(_ => this.refreshRolesBs$.next());
   }
 }
