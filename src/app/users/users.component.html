@@ -2,6 +2,11 @@
   <button mat-button (click)="createUser()">Create user</button>
   <app-users-list
     [users]="users$ | async"
-    (afterUserSelected)="selectedUser = $event">
+    (afterUserSelected)="onSelectedUserChange($event)">
   </app-users-list>
+
+  <div>
+    <app-roles-list [roles]="userRoles$ | async"></app-roles-list>
+  </div>
+
 </div>

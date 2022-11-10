@@ -9,11 +9,14 @@ import { RoleModalComponent } from './components/role-modal/role-modal.component
 
 
 @NgModule({
-  declarations: [
-    RolesComponent,
-    RolesListComponent,
-    RoleModalComponent
-  ],
+    declarations: [
+        RolesComponent,
+        RolesListComponent,
+        RoleModalComponent
+    ],
+    exports: [
+        RolesListComponent
+    ],
     imports: [
         CommonModule,
         RolesRoutingModule,
