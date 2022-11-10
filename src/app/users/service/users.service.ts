@@ -17,6 +17,10 @@ export class UsersService {
     return this.http.get<User[]>(`${Env.url}/users`);
   }
 
+  public getUserDetails(userId: number): Observable<any> {
+    return this.http.get<any>(`${Env.url}/users/${userId}/details`);
+  }
+
   public checkIfUsernameIsTaken(username: string): Observable<boolean> {
     return this.http.get<boolean>(`${Env.url}/users/${username}/exists`);
   }

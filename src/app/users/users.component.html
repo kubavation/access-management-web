@@ -8,6 +8,9 @@
   </div>
 
   <div class="user-details-containers">
+    <div>
+      <app-user-details [userDetails]="userDetails$ | async"></app-user-details>
+    </div>
     <div class="user-details-roles">
       <app-roles-list [roles]="userRoles$ | async"></app-roles-list>
     </div>

@@ -21,6 +21,10 @@ export class UsersComponent{
     switchMap(user => this.usersService.getUserRoles(user.id))
   )
 
+  userDetails$ = this.selectedUserSubject$.pipe(
+    switchMap(user => this.usersService.getUserDetails(user.id))
+  )
+
   selectedUser: User;
 
   constructor(private usersService: UsersService,
