@@ -27,4 +27,5 @@ export class RolesListComponent {
     this.selected = row;
     this.afterRoleSelected.next(this.selected);
   }
+
 }
