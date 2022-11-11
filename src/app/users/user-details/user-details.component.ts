@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {UserDetails} from "../model/user-details";
 
 @Component({
   selector: 'app-user-details',
@@ -8,7 +9,7 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 })
 export class UserDetailsComponent {
 
-  @Input() userDetails: any;
+  @Input() userDetails: UserDetails;
 
   constructor() { }
 

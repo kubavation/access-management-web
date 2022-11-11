@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {User} from "../model/user";
 import {CreateUserRequest} from "../model/create-user-request";
 import {Role} from "../../roles/model/role";
+import {UserDetails} from "../model/user-details";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class UsersService {
     return this.http.get<User[]>(`${Env.url}/users`);
   }
 
-  public getUserDetails(userId: number): Observable<any> {
+  public getUserDetails(userId: number): Observable<UserDetails> {
     return this.http.get<any>(`${Env.url}/users/${userId}/details`);
   }
 
