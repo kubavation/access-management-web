@@ -1,3 +1,15 @@
 <div>
-  user details {{userDetails?.email}}
+  <mat-card>
+    <mat-card-header>
+      <p>User {{userDetails?.username}}</p>
+    </mat-card-header>
+    <mat-card-content>
+      <div>Email {{userDetails?.email}}</div>
+      <div>First name {{userDetails?.firstName}}</div>
+      <div>Last name {{userDetails?.lastName}}</div>
+      <div>Created by {{userDetails?.createdBy}}</div>
+      <div>Created at {{userDetails?.createdAt | date: 'yyyy-MM-dd h:mm'}}</div>
+
+    </mat-card-content>
+  </mat-card>
 </div>
