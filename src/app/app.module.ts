@@ -11,7 +11,7 @@ import { MenuItemCardComponent } from './main-menu/components/menu-item-card/men
 import {SharedModule} from "./shared/shared.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {KeycloakService} from "keycloak-angular";
+import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./init/keycloak-init.factory";
 
 @NgModule({
@@ -27,7 +27,8 @@ import {initializeKeycloak} from "./init/keycloak-init.factory";
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    MatToolbarModule
+    MatToolbarModule,
+    KeycloakAngularModule
   ],
   providers: [
     {
