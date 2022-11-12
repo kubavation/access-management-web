@@ -12,7 +12,7 @@ import {SharedModule} from "./shared/shared.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
-import {initializeKeycloak} from "./init/keycloak-init.factory";
+import {initializeKeycloak} from "./keycloak/init/keycloak-init.factory";
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {MainMenuComponent} from "./main-menu/main-menu.component";
-import {AuthGuard} from "./guards/auth.guard";
+import {AuthGuard} from "./keycloak/guards/auth.guard";
 
 const routes: Routes = [
   {path: '', component: MainMenuComponent, canActivate: [AuthGuard]},
