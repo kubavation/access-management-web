@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,8 @@ import { MenuItemCardComponent } from './main-menu/components/menu-item-card/men
 import {SharedModule} from "./shared/shared.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {KeycloakService} from "keycloak-angular";
+import {initializeKeycloak} from "./init/keycloak-init.factory";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,14 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     SharedModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
