@@ -13,7 +13,7 @@ export class RoleModalComponent {
 
   form = this.fb.group({
     name: ['', Validators.required],
-    desc: ['', Validators.required]
+    description: ['', Validators.required]
   })
 
   constructor(private dialogRef: MatDialogRef<RoleModalComponent>,
