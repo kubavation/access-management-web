@@ -19,7 +19,7 @@ export class RolesListComponent {
   selected: Role | null;
   _dataSource: MatTableDataSource<Role>;
 
-  public readonly DATA_TABLE_COLUMNS = ['name','desc'];
+  public readonly DATA_TABLE_COLUMNS = ['name','description'];
 
   constructor() { }
 
