@@ -18,7 +18,7 @@ export class UsersService {
     return this.http.get<User[]>(`${Env.url}/users`);
   }
 
-  public getUserDetails(userId: number): Observable<UserDetails> {
+  public getUserDetails(userId: string): Observable<UserDetails> {
     return this.http.get<any>(`${Env.url}/users/${userId}/details`);
   }
 
@@ -30,7 +30,7 @@ export class UsersService {
     return this.http.post<void>(`${Env.url}/users`, request);
   }
 
-  public getUserRoles(userId: number): Observable<Role[]> {
+  public getUserRoles(userId: string): Observable<Role[]> {
     return this.http.get<Role[]>(`${Env.url}/users/${userId}/roles`);
   }
 
