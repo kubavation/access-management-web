@@ -3,7 +3,9 @@ import {UsersService} from "./service/users.service";
 import {Router} from "@angular/router";
 import {User} from "./model/user";
 import {combineLatest} from "rxjs/internal/operators/combineLatest";
-import {Subject, switchMap, tap} from "rxjs";
+import {filter, Subject, switchMap, tap} from "rxjs";
+import {ConfirmationModalComponent} from "../shared/modals/confirmation-modal/confirmation-modal.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-users',
@@ -28,6 +30,7 @@ export class UsersComponent{
   selectedUser: User;
 
   constructor(private usersService: UsersService,
+              private dialog: MatDialog,
               private router: Router) { }
 
   createUser(): void {
@@ -39,7 +42,17 @@ export class UsersComponent{
     this.selectedUserSubject$.next(this.selectedUser);
   }
 
-  deleteUser() {
-
+  deleteUser(): void {
+    this.dialog.open(ConfirmationModalComponent, {
+      width: '500px',
+      height: '400px',
+      data: {
+        object: this.selectedUser.username
+      }
+    }).afterClosed()
+      .pipe(
+        filter(val => !!val),
+        switchMap(_ => this.usersService.deleteUser(this.selectedUser.id)))
+      .subscribe();
   }
 }

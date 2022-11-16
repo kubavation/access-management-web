@@ -34,4 +34,8 @@ export class UsersService {
     return this.http.get<Role[]>(`${Env.url}/users/${userId}/roles`);
   }
 
+  public deleteUser(userId: string): Observable<void> {
+    return this.http.delete<void>(`${Env.url}/users/${userId}`);
+  }
+
 }
