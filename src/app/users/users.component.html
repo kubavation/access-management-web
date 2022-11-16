@@ -1,6 +1,9 @@
 <div>
   <div>
-    <button mat-button (click)="createUser()">Create user</button>
+    <div class="user-actions">
+      <button mat-raised-button (click)="createUser()">Create</button>
+      <button mat-raised-button (click)="deleteUser()">Delete</button>
+    </div>
     <app-users-list
       [users]="users$ | async"
       (afterUserSelected)="onSelectedUserChange($event)">

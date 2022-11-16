@@ -38,4 +38,8 @@ export class UsersComponent{
     this.selectedUser = user;
     this.selectedUserSubject$.next(this.selectedUser);
   }
+
+  deleteUser() {
+
+  }
 }
