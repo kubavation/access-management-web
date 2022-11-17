@@ -18,9 +18,10 @@ export class AddUserRolesComponent {
 
   @Input() availableRoles: Role[];
 
+  @Input()
   chosenRoles: Role[] = [];
 
-  constructor(private roleService: RoleService) { }
+  constructor() { }
 
   drop(event: CdkDragDrop<Role[]>) {
     if (event.previousContainer === event.container) {
