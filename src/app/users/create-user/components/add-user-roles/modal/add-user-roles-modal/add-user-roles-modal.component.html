@@ -1,3 +1,6 @@
 <div>
-  <app-add-user-roles [chosenRoles]="availableRoles$ | async" [availableRoles]="availableRoles$ | async"></app-add-user-roles>
+  <app-add-user-roles [form]="form"
+                      [chosenRoles]="availableRoles$ | async"
+                      [availableRoles]="availableRoles$ | async">
+  </app-add-user-roles>
 </div>
