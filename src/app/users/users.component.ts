@@ -6,6 +6,9 @@ import {combineLatest} from "rxjs/internal/operators/combineLatest";
 import {filter, Subject, switchMap, tap} from "rxjs";
 import {ConfirmationModalComponent} from "../shared/modals/confirmation-modal/confirmation-modal.component";
 import {MatDialog} from "@angular/material/dialog";
+import {
+  AddUserRolesModalComponent
+} from "./create-user/components/add-user-roles/modal/add-user-roles-modal/add-user-roles-modal.component";
 
 @Component({
   selector: 'app-users',
@@ -20,6 +23,7 @@ export class UsersComponent{
   selectedUserSubject$ = new Subject<User>()
 
   userRoles$ = this.selectedUserSubject$.pipe(
+    tap(c => console.log(c)),
     switchMap(user => this.usersService.getUserRoles(user.id))
   )
 
@@ -54,5 +58,12 @@ export class UsersComponent{
         filter(val => !!val),
         switchMap(_ => this.usersService.deleteUser(this.selectedUser.id)))
       .subscribe();
+  }
+
+  editUserRoles(): void {
+    this.dialog.open(AddUserRolesModalComponent, {
+      width: '500px',
+      height: '400px',
+    });
   }
 }

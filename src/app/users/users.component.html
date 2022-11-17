@@ -20,6 +20,9 @@
           <h2>User roles</h2>
         </mat-card-header>
         <mat-card-content>
+          <div class="user-actions">
+            <button mat-raised-button (click)="editUserRoles()">Edit</button>
+          </div>
           <app-roles-list [roles]="userRoles$ | async"></app-roles-list>
         </mat-card-content>
       </mat-card>

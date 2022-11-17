@@ -12,6 +12,7 @@ import { CmEmployeesComponent } from './create-user/components/additional-user-i
 import {RolesModule} from "../roles/roles.module";
 import { UserDetailsComponent } from './user-details/user-details.component';
 import {MatRippleModule} from "@angular/material/core";
+import { AddUserRolesModalComponent } from './create-user/components/add-user-roles/modal/add-user-roles-modal/add-user-roles-modal.component';
 
 
 
@@ -24,7 +25,8 @@ import {MatRippleModule} from "@angular/material/core";
     AdditionalUserInformationComponent,
     AddUserRolesComponent,
     CmEmployeesComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AddUserRolesModalComponent
   ],
   imports: [
     CommonModule,
