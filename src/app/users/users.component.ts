@@ -65,6 +65,9 @@ export class UsersComponent{
     this.dialog.open(AddUserRolesModalComponent, {
       width: '500px',
       height: '400px',
+      data: {
+        userId: this.selectedUser.id
+      }
     });
   }
 }
