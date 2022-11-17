@@ -9,6 +9,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {
   AddUserRolesModalComponent
 } from "./create-user/components/add-user-roles/modal/add-user-roles-modal/add-user-roles-modal.component";
+import {Role} from "../roles/model/role";
 
 @Component({
   selector: 'app-users',
