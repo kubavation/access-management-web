@@ -29,7 +29,7 @@ export class AddUserRolesModalComponent {
 
 
   constructor(private dialogRef: MatDialogRef<AddUserRolesModalComponent>,
-              @Inject(MAT_DIALOG_DATA) private dialogData,
+              @Inject(MAT_DIALOG_DATA) private dialogData: {userId: string},
               private roleService: RoleService,
               private fb: FormBuilder,
               private userService: UsersService) {
