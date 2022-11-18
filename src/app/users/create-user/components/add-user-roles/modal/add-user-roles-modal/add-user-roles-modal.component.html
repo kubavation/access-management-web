@@ -1,6 +1,15 @@
-<div class="user-roles-container">
-  <app-add-user-roles [form]="form"
-                      [chosenRoles]="userRoles$ | async"
-                      [availableRoles]="availableRoles$ | async">
-  </app-add-user-roles>
+<h1 mat-dialog-title>Change roles</h1>
+<div mat-card-content class="mat-dialog-content-container">
+
+    <div class="user-roles-container">
+      <app-add-user-roles [form]="form"
+                          [chosenRoles]="userRoles$ | async"
+                          [availableRoles]="availableRoles$ | async">
+      </app-add-user-roles>
+    </div>
+
+</div>
+<div mat-dialog-actions class="dialog-action-container">
+  <button mat-button >Cancel</button>
+  <button mat-button [disabled]="!form.valid" >Save</button>
 </div>
