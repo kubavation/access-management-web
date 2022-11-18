@@ -38,4 +38,8 @@ export class UsersService {
     return this.http.delete<void>(`${Env.url}/users/${userId}`);
   }
 
+  public updateUserRoles(userId: string, roles: Role[]) {
+    return this.http.put<void>(`${Env.url}/users/${userId}/roles`, roles);
+  }
+
 }

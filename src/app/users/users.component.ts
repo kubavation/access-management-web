@@ -68,6 +68,12 @@ export class UsersComponent{
       data: {
         userId: this.selectedUser.id
       }
-    });
+    }).afterClosed()
+      .pipe(
+        filter(_ => !!_),
+        switchMap((roles: Role[]) => this.usersService.updateUserRoles(this.selectedUser.id, roles))
+      ).subscribe(res => {
+        console.log(res)
+      });
   }
 }

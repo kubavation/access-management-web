@@ -10,6 +10,6 @@
 
 </div>
 <div mat-dialog-actions class="dialog-action-container">
-  <button mat-button >Cancel</button>
-  <button mat-button [disabled]="!form.valid" >Save</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [disabled]="!form.valid" (click)="onSave()">Save</button>
 </div>

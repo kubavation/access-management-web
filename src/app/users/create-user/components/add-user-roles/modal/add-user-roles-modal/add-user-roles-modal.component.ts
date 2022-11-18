@@ -50,7 +50,12 @@ export class AddUserRolesModalComponent {
 
   }
 
-  public open(): void {
+
+  onSave(): void {
+   this.dialogRef.close(this.form.get('roles').value);
   }
 
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 }
