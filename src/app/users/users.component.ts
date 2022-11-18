@@ -74,6 +74,7 @@ export class UsersComponent{
         switchMap((roles: Role[]) => this.usersService.updateUserRoles(this.selectedUser.id, roles))
       ).subscribe(res => {
         console.log(res)
+        this.selectedUserSubject$.next(this.selectedUser);
       });
   }
 }
