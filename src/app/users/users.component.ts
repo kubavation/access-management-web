@@ -77,4 +77,9 @@ export class UsersComponent{
         this.selectedUserSubject$.next(this.selectedUser);
       });
   }
+
+  changeUserStatus(enabled: boolean | undefined) {
+    this.usersService.changeUserStatus(this.selectedUser.id, {enabled: !enabled})
+      .subscribe(_ => this.selectedUserSubject$.next(this.selectedUser));
+  }
 }
