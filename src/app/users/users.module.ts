@@ -13,6 +13,7 @@ import {RolesModule} from "../roles/roles.module";
 import { UserDetailsComponent } from './user-details/user-details.component';
 import {MatRippleModule} from "@angular/material/core";
 import { AddUserRolesModalComponent } from './create-user/components/add-user-roles/modal/add-user-roles-modal/add-user-roles-modal.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 
 
@@ -28,12 +29,13 @@ import { AddUserRolesModalComponent } from './create-user/components/add-user-ro
     UserDetailsComponent,
     AddUserRolesModalComponent
   ],
-  imports: [
-    CommonModule,
-    UsersRoutingModule,
-    SharedModule,
-    RolesModule,
-    MatRippleModule
-  ]
+    imports: [
+        CommonModule,
+        UsersRoutingModule,
+        SharedModule,
+        RolesModule,
+        MatRippleModule,
+        MatMenuModule
+    ]
 })
 export class UsersModule { }
