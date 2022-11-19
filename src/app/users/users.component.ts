@@ -3,7 +3,7 @@ import {UsersService} from "./service/users.service";
 import {Router} from "@angular/router";
 import {User} from "./model/user";
 import {combineLatest} from "rxjs/internal/operators/combineLatest";
-import {filter, Subject, switchMap, tap} from "rxjs";
+import {BehaviorSubject, filter, Subject, switchMap, tap} from "rxjs";
 import {ConfirmationModalComponent} from "../shared/modals/confirmation-modal/confirmation-modal.component";
 import {MatDialog} from "@angular/material/dialog";
 import {
@@ -17,9 +17,13 @@ import {Role} from "../roles/model/role";
   styleUrls: ['./users.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersComponent{
+export class UsersComponent {
 
-  users$ = this.usersService.getUsers();
+  refreshUsersSubject$ = new BehaviorSubject<void>(null);
+
+  users$ = this.refreshUsersSubject$.pipe(
+    switchMap(_ => this.usersService.getUsers())
+  );
 
   selectedUserSubject$ = new Subject<User>()
 
@@ -73,13 +77,12 @@ export class UsersComponent{
         filter(_ => !!_),
         switchMap((roles: Role[]) => this.usersService.updateUserRoles(this.selectedUser.id, roles))
       ).subscribe(res => {
-        console.log(res)
         this.selectedUserSubject$.next(this.selectedUser);
       });
   }
 
   changeUserStatus(enabled: boolean | undefined) {
     this.usersService.changeUserStatus(this.selectedUser.id, {enabled: !enabled})
-      .subscribe(_ => this.selectedUserSubject$.next(this.selectedUser));
+      .subscribe(_ => this.refreshUsersSubject$.next());
   }
 }
