@@ -11,7 +11,7 @@
       <mat-menu #menu="matMenu">
         <button [disabled]="!selectedUser" mat-menu-item (click)="changeUserStatus(this.selectedUser?.enabled)">
           <mat-icon>dialpad</mat-icon>
-          <span>Enable/disable user</span>
+          <span> {{selectedUser?.enabled ? 'Disable ' : 'Enable ' }}user</span>
         </button>
       </mat-menu>
 
