@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import {UsersService} from "./service/users.service";
 import {Router} from "@angular/router";
 import {User} from "./model/user";
@@ -10,6 +10,7 @@ import {
   AddUserRolesModalComponent
 } from "./create-user/components/add-user-roles/modal/add-user-roles-modal/add-user-roles-modal.component";
 import {Role} from "../roles/model/role";
+import {UsersListComponent} from "./users-list/users-list.component";
 
 @Component({
   selector: 'app-users',
@@ -19,9 +20,12 @@ import {Role} from "../roles/model/role";
 })
 export class UsersComponent {
 
+  @ViewChild(UsersListComponent) userListComponent: UsersListComponent;
+
   refreshUsersSubject$ = new BehaviorSubject<void>(null);
 
   users$ = this.refreshUsersSubject$.pipe(
+    tap(_ => this.clearUserSelection()),
     switchMap(_ => this.usersService.getUsers())
   );
 
@@ -84,5 +88,14 @@ export class UsersComponent {
   changeUserStatus(enabled: boolean | undefined) {
     this.usersService.changeUserStatus(this.selectedUser.id, {enabled: !enabled})
       .subscribe(_ => this.refreshUsersSubject$.next());
+  }
+
+  private clearUserSelection(): void {
+    this.selectedUser = null;
+
+    if (this.userListComponent) {
+      this.userListComponent._selected = null;
+    }
+
   }
 }

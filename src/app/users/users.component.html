@@ -4,7 +4,7 @@
       <button mat-raised-button (click)="createUser()">Create</button>
       <button mat-raised-button (click)="deleteUser()">Delete</button>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu"  [disabled]="!selectedUser">
         <mat-icon>more_vert</mat-icon>
       </button>
 
