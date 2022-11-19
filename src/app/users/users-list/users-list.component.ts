@@ -26,7 +26,7 @@ export class UsersListComponent {
   dataSource: MatTableDataSource<User>;
   _selected: User | null;
 
-  public readonly DATA_TABLE_COLUMNS = ['id', 'username', 'email'];
+  public readonly DATA_TABLE_COLUMNS = ['id', 'username', 'email', 'enabled'];
 
 
   constructor() { }
