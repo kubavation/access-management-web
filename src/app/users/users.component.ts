@@ -66,7 +66,9 @@ export class UsersComponent {
       .pipe(
         filter(val => !!val),
         switchMap(_ => this.usersService.deleteUser(this.selectedUser.id)))
-      .subscribe();
+      .subscribe(_ => {
+         this.refreshUsersSubject$.next();
+      });
   }
 
   editUserRoles(): void {
@@ -80,8 +82,8 @@ export class UsersComponent {
       .pipe(
         filter(_ => !!_),
         switchMap((roles: Role[]) => this.usersService.updateUserRoles(this.selectedUser.id, roles))
-      ).subscribe(res => {
-        this.selectedUserSubject$.next(this.selectedUser);
+      ).subscribe(_ => {
+          this.selectedUserSubject$.next(this.selectedUser);
       });
   }
 
