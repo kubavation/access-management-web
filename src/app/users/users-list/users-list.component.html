@@ -20,7 +20,7 @@
     <ng-container matColumnDef="enabled">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon [ngStyle]="element.enabled ? {'color': 'green'} : {'color': 'red'}">check_circle_outline</mat-icon>
+        <mat-icon [ngClass]="element.enabled ? 'user-enabled-icon' : 'user-disabled-icon'">check_circle_outline</mat-icon>
       </td>
     </ng-container>
 
