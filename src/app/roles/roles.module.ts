@@ -5,8 +5,7 @@ import { RolesComponent } from './roles.component';
 import { RolesListComponent } from './components/roles-list/roles-list.component';
 import {SharedModule} from "../shared/shared.module";
 import { RoleModalComponent } from './components/role-modal/role-modal.component';
-
-
+import {CmComponentsLibModule} from "@cm-components-lib";
 
 @NgModule({
     declarations: [
@@ -20,7 +19,8 @@ import { RoleModalComponent } from './components/role-modal/role-modal.component
     imports: [
         CommonModule,
         RolesRoutingModule,
-        SharedModule
+        SharedModule,
+        CmComponentsLibModule
     ]
 })
 export class RolesModule { }
