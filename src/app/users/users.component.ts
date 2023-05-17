@@ -3,7 +3,7 @@ import {UsersService} from "./service/users.service";
 import {Router} from "@angular/router";
 import {User} from "./model/user";
 import {combineLatest} from "rxjs/internal/operators/combineLatest";
-import {BehaviorSubject, filter, Subject, switchMap, tap} from "rxjs";
+import {BehaviorSubject, filter, Observable, Subject, switchMap, tap} from "rxjs";
 import {ConfirmationModalComponent} from "../shared/modals/confirmation-modal/confirmation-modal.component";
 import {MatDialog} from "@angular/material/dialog";
 import {
@@ -32,7 +32,6 @@ export class UsersComponent {
   selectedUserSubject$ = new Subject<User>()
 
   userRoles$ = this.selectedUserSubject$.pipe(
-    tap(c => console.log(c)),
     switchMap(user => this.usersService.getUserRoles(user.id))
   )
 
@@ -87,10 +86,19 @@ export class UsersComponent {
       });
   }
 
-  changeUserStatus(enabled: boolean | undefined) {
-    this.usersService.changeUserStatus(this.selectedUser.id, {enabled: !enabled})
+  changeUserStatus(enabled: boolean) {
+
+    this.changeUserEnabledStatus(this.selectedUser.id, enabled)
       .subscribe(_ => this.refreshUsersSubject$.next());
   }
+
+   private changeUserEnabledStatus(userId: string, enabled: boolean): Observable<void> {
+      if (enabled) {
+        return this.usersService.enableUser(userId);
+      }
+      return this.usersService.disableUser(userId)
+   }
+
 
   private clearUserSelection(): void {
     this.selectedUser = null;

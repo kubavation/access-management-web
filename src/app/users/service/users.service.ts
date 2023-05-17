@@ -42,7 +42,12 @@ export class UsersService {
     return this.http.put<void>(`${Env.url}/users/${userId}/roles`, roles);
   }
 
-  public changeUserStatus(userId: string, userStatus: { enabled: boolean }) {
-    return this.http.patch<void>(`${Env.url}/users/${userId}/status/${userStatus.enabled ? 'enabled' : 'disabled'}`, null);
+  public enableUser(userId: string) {
+    return this.http.patch<void>(`${Env.url}/users/${userId}/status/enabled`, null);
   }
+
+  public disableUser(userId: string) {
+    return this.http.patch<void>(`${Env.url}/users/${userId}/status/disabled`, null);
+  }
+
 }
