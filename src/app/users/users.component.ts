@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/co
 import {UsersService} from "./service/users.service";
 import {Router} from "@angular/router";
 import {User} from "./model/user";
-import {combineLatest} from "rxjs/internal/operators/combineLatest";
 import {BehaviorSubject, filter, Observable, Subject, switchMap, tap} from "rxjs";
 import {ConfirmationModalComponent} from "../shared/modals/confirmation-modal/confirmation-modal.component";
 import {MatDialog} from "@angular/material/dialog";
